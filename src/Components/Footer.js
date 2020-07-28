@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { FaInstagramSquare, FaFacebookSquare, FaYoutube } from "react-icons/fa";
+
+
 const RED = styled.div`
 width: 7vh;
 height: 7vh;
@@ -87,7 +90,11 @@ export default function Footer() {
 			<Maincontainer>
 				<Menu>
 					<h3><Link href='/'>MATHMODELING</Link></h3>
-					<h5>Nhieu thanh phan nhieu the loai</h5>
+					<div>
+						<Link href=''><FaFacebookSquare /></Link>
+						<Link href=''><FaInstagramSquare /></Link>
+						<Link href=''><FaYoutube /></Link>
+					</div>
 					<h5>toanmohinhhanoi@gmail.com</h5>
 				</Menu>
 				<HRvertical />

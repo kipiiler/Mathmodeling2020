@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { ReactComponent as Logoimg } from '../images/tmh.svg'
 
 const Maincontainer = styled.div`
 background:transparent;
@@ -9,7 +10,7 @@ flex-flow: row no-wrap;
 align-items:center;
 `
 const Logo = styled.div`
-width:15%;
+width:10%;
 `
 
 const Navbar = styled.div`
@@ -27,8 +28,13 @@ margin-right: 60px;
 text-decoration:none;
 font-weight: bold;
 color:white;
+transition: .5s ease all;
 &:hover{
-	color:#F38640;
+	font-size:120%;
+	background-image: linear-gradient(to right,#259759 ,#29A1C5);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 `
 const HRBar = styled.hr`
@@ -46,10 +52,11 @@ line-height: 23px;
 padding:1vh;
 color:white
 `
+
 export default function Header() {
 	return (
-		<Maincontainer>
-			<Logo>Logo container</Logo>
+		<Maincontainer style={{ zIndex: 10 }}>
+			<Logo><Logoimg style={{ height: '60px', width: '100%' }} /></Logo>
 			<NavbarContainer>
 				<Branding>MATHMODELING</Branding>
 				<HRBar></HRBar>
