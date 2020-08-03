@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Logoimg } from '../images/tmh.svg'
+import { ReactComponent as Logoimg } from '../images/tmh.svg';
 
 const Maincontainer = styled.div`
 background:transparent;
