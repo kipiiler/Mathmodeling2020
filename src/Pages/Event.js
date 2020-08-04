@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Backgroundvideo from '../images/MVI_2588.MP4'
+import Curved from '../images/Curved.svg'
 
 const Aboutcontain = styled.div`
 background:#2C5684;
@@ -123,37 +124,105 @@ text-align: center;
  &:hover {
 	border: 1px solid white; 
 };
+&:visited{
+	color:white;
+}
 `
 
 const Eventaboutext = styled.div`
 color:white;
 text-align:center;
 `
+const CurvedCover = styled.div`
+background: url(${Curved});
+background-size:cover;
+position:absolute;
+height:30%;
+width:100%;
+bottom:0px;
+`
+const Videocontainer = styled.div`
+width: 100%;
+position: relative;
+height:80vh;
+`
+const Video = styled.video`
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center;
+`
+const Overlay = styled.div`
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-color:rgba(83, 132, 172,.8)`
 
+const Calendarbtn = styled.a`
+padding-left: 70px;
+padding-right: 70px;
+padding-top:10px;
+padding-bottom:10px;
+background: #F38640;
+border-radius: 40px;
+position:absolute;
+font-size:2rem;
+font-weight:bold;
+color:white;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+&:hover{
+	color:black;
+	background:white;
+};
+text-decoration:none;
+`
+const Eventintro = styled.div`
+display:flex;
+flex-flow:column;
+align-items: center;
+padding-bottom:50px;
+`
+
+const Eventtext = styled.div`
+font-family: Roboto;
+font-weight: bold;
+font-size: 30px;
+color: #FFFFFF;
+`
+const Eventdes = styled.div`
+font-family: Roboto;
+font-size: 20px;
+width:45%;
+padding:20px;
+margin-top:20px;
+text-align: center;
+color: #FFFFFF;
+border: 1px solid #FFFFFF;
+`
 export default function About() {
 	return (
 		<>
 			<Aboutcontain>
-				<div style={{
-					paddingTop: '60px',
-					width: '100%',
-					height: '80vh',
-					backgroundColor: '#aaa',
-					zIndex: 2,
-					position: 'relative',
-				}}>
-					<video play muted id="myVideo">
+				<Videocontainer>
+					<Video autoPlay muted loop>
 						<source src={Backgroundvideo} type="video/mp4" />
-					</video>
-				</div>
-				<div>
-					<div>Events</div>
-					<div>
+					</Video>
+					<Overlay></Overlay>
+					<CurvedCover></CurvedCover>
+					<Calendarbtn href='/calendar'>Calendar</Calendarbtn>
+				</Videocontainer>
+				<Eventintro>
+					<Eventtext>Events</Eventtext>
+					<Eventdes>
 						Lỏema apwjvpa awpcjpao apvjpawjvpam
 						awevjapwvpajrvsuobonauf vaowhvo oăhv
 						ao whevoawvnoan aowvhoawijveaw oahwvoanv
-					</div>
-				</div>
+					</Eventdes>
+				</Eventintro>
 			</Aboutcontain>
 			<section>
 				<Timeline>
@@ -176,7 +245,7 @@ export default function About() {
 						<Timebg
 							style={{ backgroundImage: `url(https://scontent.fhan3-1.fna.fbcdn.net/v/t1.15752-9/116878828_602262417157942_2999931848034690176_n.jpg?_nc_cat=109&_nc_sid=b96e70&_nc_ohc=F6JQSCjbHGIAX_3enEv&_nc_ht=scontent.fhan3-1.fna&oh=c328a322f079779a59e7b43866620d9a&oe=5F4EE494)` }}>
 						</Timebg>
-						<Timeyear class="time-year">
+						<Timeyear >
 							<Text>ONLINE CONTEST</Text>
 						</Timeyear>
 						<Timecontent className="time-content">
@@ -189,7 +258,7 @@ export default function About() {
 					</Timeitems>
 					<Timeitems className='time-item'>
 						<Timebg style={{ backgroundImage: `url(https://scontent.fhan4-1.fna.fbcdn.net/v/t1.15752-9/117120454_787965218639537_1322964507494404472_n.jpg?_nc_cat=105&_nc_sid=b96e70&_nc_ohc=Ri5po3sHA_oAX-03_pD&_nc_ht=scontent.fhan4-1.fna&oh=8c278253b5319dc72f075ef0c7d3e6b4&oe=5F4DCB43)` }}></Timebg>
-						<Timeyear class=" time-year">
+						<Timeyear >
 							<Text>OFFLINE CONTEST</Text>
 						</Timeyear>
 						<Timecontent className="time-content">
