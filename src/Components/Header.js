@@ -6,6 +6,7 @@ const Maincontainer = styled.div`
 background:transparent;
 position: fixed;
 display:flex;
+max-height:75px;
 flex-flow: row no-wrap;
 align-items:center;
 `
