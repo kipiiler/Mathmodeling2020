@@ -8,6 +8,8 @@ import Event from './Pages/Event';
 import Blog from './Pages/Blog';
 import ImageGallery from './Pages/ImageGallery';
 
+import Deve from './Pages/Demo';
+
 import Footer from './Components/Footer';
 import Header from './Components/Header';
 
@@ -21,6 +23,7 @@ function App() {
         <Route path="/event" component={Event} />
         <Route path="/image" component={ImageGallery} />
         <Route path="/about" component={About} />
+        <Route path='/dev' component={Deve} />
       </Switch>
       <Footer />
     </>

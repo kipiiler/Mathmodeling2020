@@ -1,14 +1,130 @@
-import React, { useRef, useState } from 'react'
-import { Canvas, useFrame } from 'react-three-fiber'
+import React, { useRef, Suspense, useState } from 'react'
+import { Canvas, useFrame, useLoader } from 'react-three-fiber';
+import Cup from '../images/demo.glb';
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { OrbitControls, softShadows } from 'drei';
 import styled from 'styled-components';
 import { FaInstagram as FaInstagramSquare, FaFacebookF as FaFacebookSquare, FaGithub } from "react-icons/fa";
+
+const quoteData = [{
+	quote1: `"Tôi không biết thế giới nhìn tôi như thế nào, nhưng đối với tôi, mình dường như chỉ là một đứa bé chơi đùa trên bờ biển: thi thoảng lại chăm chú nhìn vào một hòn sỏi trơn nhẵn hay một vỏ ốc đẹp đẽ hơn bình thường, trong khi đại dương bao la của kiến thức ngay trước mắt mình còn chưa được khám phá."`,
+	quote2: `"Không có lời giải tốt nhất, chỉ có lời giải tốt hơn”`,
+	quote3: `"Logic sẽ đưa chúng ta từ điểm A đến điểm B. Trí tưởng tượng sẽ đưa chúng ta tới mọi nơi" `,
+	quote4: ` “Follow your dream”	`,
+}]
+
+softShadows();
+const Trophy = () => {
+	const mesh = useRef();
+	useFrame(() => {
+		mesh.current.position.y = -.9;
+		mesh.current.rotation.y += 0
+		mesh.current.rotation.x += 0
+	})
+	const { nodes, materials } = useLoader(GLTFLoader, Cup);
+	const entries = Object.entries(materials)
+	console.log(entries)
+	for (var x of entries) {
+		//Set glass property to all
+		x[1].roughness = 0.3;
+		x[1].transparent = true;
+		x[1].wireframe = false;
+		x[1].transmission = .9;
+		x[1].reflectivity = .8;
+	}
+	//Logo an text reset
+	materials.tmh.wireframe = false;
+	materials.tmh.transmission = 0;
+	materials.tmh.reflectivity = 0;
+	materials['Material.003'].reflectivity = 0;
+	materials['Material.003'].transmission = 0;
+	materials['Material.002'].transmission = 0;
+	materials['Material.002'].reflectivity = 0;
+	//Mesh color
+	materials['Material.005'].color.r = .8;
+	materials['Material.005'].color.g = 1;
+	materials['Material.005'].color.b = 0;
+	materials['Material.004'].color.r = .6;
+	materials['Material.004'].color.g = .2;
+	materials['Material.004'].color.b = 0;
+	materials['Material.006'].color.r = 1;
+	materials['Material.006'].color.g = 1;
+	materials['Material.006'].color.b = 0;
+	materials['Material.007'].color.r = 1;
+	materials['Material.007'].color.g = 1;
+	materials['Material.007'].color.b = 0;
+
+
+	return (
+		<group ref={mesh} dispose={null}>
+			<mesh
+				material={materials['Material.004']}
+				geometry={nodes.Plane.geometry}
+				position={[1.49, -0.16, 0.23]}
+				scale={[1.29, 1.65, 1.29]}
+			/>
+			<mesh
+				material={materials['Material.007']}
+				geometry={nodes.Torus.geometry}
+				position={[0, 0.63, 0.23]}
+				scale={[0.39, 0.19, 0.39]}
+			/>
+			<mesh
+				material={materials['Material.006']}
+				geometry={nodes.Icosphere.geometry}
+				position={[0, 1.02, 0.23]}
+				scale={[-0.54, -0.54, -0.54]}
+			/>
+			<mesh
+				material={materials['Material.005']}
+				geometry={nodes.Cone.geometry}
+				position={[-0.01, 1.4, 0.21]}
+				rotation={[0.66, 0.04, 3.12]}
+				scale={[1.56, 1.43, 1.47]}
+			/>
+			<mesh
+				material={materials['Material.003']}
+				geometry={nodes.Text.geometry}
+				position={[0.02, 0.41, 0.72]}
+				rotation={[1.33, 0, 0]}
+				scale={[0.22, 0.22, 0.22]}
+			/>
+			<mesh
+				material={materials['Material.002']}
+				geometry={nodes.Text001.geometry}
+				position={[0.01, 1.98, 0.53]}
+				rotation={[0.65, 0.02, -0.02]}
+				scale={[0.26, 0.26, 0.26]}
+			/>
+			<mesh
+				material={materials.tmh}
+				geometry={nodes.tmh.geometry}
+				position={[0.01, 0.14, 0.78]}
+				rotation={[1.33, 0, 0]}
+				scale={[0.21, 0.21, 0.21]}
+			/>
+		</group>
+	)
+
+}
+function Loading() {
+	return (
+		<mesh onClick={(e) => console.log('click')}>
+			<ambientLight />
+			<spotLight position={[0, 5, 10]} penumbra={1} castShadow />
+			<fog attach='fog' args={['white', 10, 20]} />
+			<boxBufferGeometry attach='geometry' args={[1, 1, 1]} />
+			<meshPhysicalMaterial attach='material' color='grey' transparent />
+		</mesh >
+	)
+}
 
 const Maincontainer = styled.div`
 background:#2C5684;
 `
 const Row = styled.div`
 display:flex;
-flex-flow: row nowrap;
+flex-flow: row wrap;
 align-items: center;
 justify-content: space-evenly;
 `
@@ -33,18 +149,18 @@ padding-bottom:30px;
 `
 
 const FounderCard = styled.div`
-width:350px;
-height:350px;
+width:250px;
+height:250px;
 border-radius:100%;
 border: 2px #F38640 solid;
 background:black;
 margin:5px;
+cursor:pointer;
 `
 const HRBar = styled.hr`
 margin:0px;
 border: .5px solid white;
 margin: auto;
-margin-top:30px;
 margin-bottom:20px;
 width:90%;
 `
@@ -103,7 +219,7 @@ const Back = styled.div`
 transform: perspective(0) rotateY(180deg);
 width:100%;
 height:100%;
-background:url('https://cdn.fbsbx.com/v/t59.2708-21/117234182_244721419834586_4566119771619253885_n.gif?_nc_cat=102&_nc_sid=041f46&_nc_ohc=WuBq4SGaxQUAX_d133_&_nc_ht=cdn.fbsbx.com&oh=c72cd871e8d10c103a25d1db272254bf&oe=5F30B2B0');
+background:url('');
 overflow:hidden;
 position:absolute;
 backface-visibility:hidden;
@@ -126,58 +242,77 @@ cursor:pointer;
 };
 transition: all .3s ease
 `
+const Quote = styled.div`
+color:white;
+width: 80%;
+margin:auto;
+padding:5vh;
+text-align:center;
+font-weight:bold;
+font-size:5vh;
+`
+const Cupbox = styled.div`
+width:70%;
+height:50vh;
+background:#2C5684
+`
 
-
-function Box(props) {
-	// This reference will give us direct access to the mesh
-	const mesh = useRef()
-
-	// Set up state for the hovered and active state
-	const [hovered, setHover] = useState(false)
-	const [active, setActive] = useState(false)
-
-	// Rotate mesh every frame, this is outside of React without overhead
-	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
-
-	return (
-		<mesh
-			{...props}
-			ref={mesh}
-			scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
-			onClick={(e) => setActive(!active)}
-			onPointerOver={(e) => setHover(true)}
-			onPointerOut={(e) => setHover(false)}>
-			<boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-			<meshStandardMaterial wireframe attach="material" color={hovered ? 'hotpink' : 'orange'} />
-		</mesh>
-	)
-}
 export default function () {
+
+	const [quote, updatequote] = useState(quoteData[0].quote1);
+	console.log(quote);
+
 	return (
 		<>
-			<Canvas style={{ background: 'grey' }}>
-				<ambientLight />
-				<pointLight position={[10, 10, 10]} />
-				<Box position={[-1.2, 0, 0]} />
-				<Box position={[1.2, 0, 0]} />
-			</Canvas>
+			<div>
+				<Row>
+					<Canvas style={{ display: 'block', outline: 'transparent solid 0px', height: '50vh', width: '30%', background: `#2C5684`, }} colorManagement shadowMap camera={{ position: [0, 1, 3] }}>
+						<ambientLight />
+						<spotLight position={[0, 5, 10]} penumbra={1} castShadow />
+						<directionalLight
+							castShadow
+							position={[0, 10, 0]}
+							intensity={1.5}
+							penumbra={1}
+							shadow-mapSize-width={1024}
+							shadow-mapSize-height={1024}
+							shadow-camera-far={50}
+							shadow-camera-left={-10}
+							shadow-camera-right={10}
+							shadow-camera-top={10}
+							shadow-camera-bottom={-10}
+						/>
+						<OrbitControls />
+						<Suspense fallback={<Loading />}>
+							<Trophy position />
+						</Suspense>
+
+					</Canvas>
+					<Cupbox></Cupbox>
+				</Row>
+			</div>
 			<Maincontainer>
 				<HRBar />
 				<Heading>FOUNDER</Heading>
 				<Row>
 					<Column>
-						<FounderCard></FounderCard>
+						<FounderCard onClick={() => updatequote(quoteData[0].quote1)}></FounderCard>
 						<Foundertitle>aaaa</Foundertitle>
 					</Column>
 					<Column>
-						<FounderCard></FounderCard>
+						<FounderCard onClick={() => updatequote(quoteData[0].quote2)}></FounderCard>
+						<Foundertitle>aaaa</Foundertitle>
+					</Column>
+					<Column>
+						<FounderCard onClick={() => updatequote(quoteData[0].quote3)}></FounderCard>
 						<Foundertitle>aaaaaaaa</Foundertitle>
 					</Column>
 					<Column>
-						<FounderCard></FounderCard>
+						<FounderCard onClick={() => updatequote(quoteData[0].quote4)}></FounderCard>
 						<Foundertitle>aaaaaaa</Foundertitle>
 					</Column>
 				</Row>
+				<Quote>{quote}</Quote>
 				<HRBar />
 				<Heading>OUR TEAM</Heading>
 				<div>

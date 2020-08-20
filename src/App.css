@@ -43,3 +43,8 @@
 ::-webkit-scrollbar-thumb {
   background: #F38640;
 }
+
+canvas{
+  outline: transparent solid 0px;
+  margin:0px;
+}

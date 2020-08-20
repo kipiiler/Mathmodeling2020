@@ -381,8 +381,6 @@ const Demo = () => {
 	)
 };
 
-console.log(reviewdata)
-
 export default function Home() {
 	return (
 		<All>
