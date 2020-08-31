@@ -5,8 +5,7 @@ import Upevent from '../images/thion.jpg';
 
 import Medal from "../images/huychuong.JPG";
 
-import { BsFillFlagFill, BsFillClockFill } from "react-icons/bs";
-import { FaUserFriends, FaRegIdCard, FaMapMarkedAlt, FaQuestion } from "react-icons/fa"
+import { FaUserFriends, FaRegIdCard, FaMapMarkedAlt, FaQuestion, FaLocationArrow, FaRegClock } from "react-icons/fa"
 
 
 const All = styled.div`
@@ -58,7 +57,11 @@ color: #FFFFFF;
 font-style: normal;
 font-weight: bold;
 font-size: 30px;
-line-height: 35px;`
+line-height: 35px;
+@media only screen and (max-width: 600px) {
+	padding:10px;
+	text-align:center;
+}`
 
 const Gioithieutext = styled.div`
 color: #FFFFFF;
@@ -69,7 +72,7 @@ line-height: 23px;`
 
 const Upcomingeventbg = styled.div`
 background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url(${Upevent});
-transform: skewY(-4deg);
+transform: skewY(-5deg);
 background-repeat: no-repeat;
 background-size:cover;
 background-position:center;
@@ -81,7 +84,7 @@ text-align: center;
 `
 
 const Upcomingeventbox = styled.div`
-transform: skewY(4deg);
+transform: skewY(5deg);
 display:flex;
 flex-flow:column;
 justify-content:center;
@@ -96,44 +99,42 @@ flex-flow:column;
 const Deseventtext = styled.div`
 color:white;
 padding:5px;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
+margin-bottom:20px;
+font-weight: bold;
+font-size: 20px;
 line-height: 19px;
-display:flex;
-justify-content:center;
-align-items: center;
 `
-const DKText = styled.div`
+const DKText = styled.a`
 color: #FFFFFF;
 background: #2C5684;
 border-radius: 100px;
-width:initial;
+font-weight:bold;
 text-decoration:none;
 &:hover{
 	color: #F38640;
 	transition: .5s ease all;
 }
 text-decoration: none;
-width: fit-content;
-margin-top:10px;
+width:max-content;
+margin-top:30px;
 margin-left: auto;
 margin-right:auto;
-padding-left: 30px;
-padding-right: 30px;
-padding-top: 5px;
-padding-bottom: 5px;
+padding-left: 40px;
+padding-right: 40px;
+padding-top: 10px;
+padding-bottom: 10px;
 `
 const Achievementcontain = styled.div`
 margin-top:100px;
 display:flex;
 align-items:center;
-flex-flow:column;
+flex-flow:column wrap;
 `
 const Achicolucontain = styled.div`
 margin-top:50px;
 display:flex;
 justify-content: space-evenly;
+flex-flow:row wrap;
 `
 
 const RED = styled.div`
@@ -181,11 +182,15 @@ background: #FFA500;
 `
 
 const Achicolu = styled.div`
-width:23%;
+width:25%;
 text-align:center;
 display:flex;
 flex-flow:column;
 align-items:center;
+@media only screen and (max-width: 600px) {
+	width:70%;
+	padding-bottom:50px;
+}
 `
 const BKimage = styled.div`
 background-image:url(${Medal});
@@ -214,7 +219,7 @@ text-decoration:none;
 
 const Subcontain = styled.div`
 display:flex;
-justify-content:space-between;
+justify-content:space-around		;
 padding:20px;
 align-items: baseline;
 `
@@ -313,6 +318,9 @@ display:flex;
 flex-flow:column;
 align-items:center;
 margin-bottom:50px;
+@media only screen and (max-width: 600px) {
+	width:90%;
+}
 `
 const Picreview = styled.div`
 border: 4px solid #F38640;
@@ -320,14 +328,22 @@ box-sizing: border-box;
 border-radius: 50px;
 height:400px;
 width:300px;
+@media only screen and (max-width: 600px) {
+	height:200px;
+	width:300px;
+}
 `
 
 const ReviewSection = styled.div`
 display: flex;
 padding:40px;
 width:80%;
-justify-content: center;
-align-items: space-evenly
+justify-content: space-evenly;
+flex-flow:row;
+align-items: space-evenly;
+@media only screen and (max-width: 600px) {
+	flex-flow:column;
+}
 `
 
 const ReviewDetail = styled.div`
@@ -389,26 +405,26 @@ export default function Home() {
 					<Gioithieucontain>
 						<Gioithieuheading>GIOI THIEU</Gioithieuheading>
 						<Gioithieutext>Gioi thieu Gioi Thieu</Gioithieutext>
-						<ExploreBtn><ExploreText href='/about'>Explore</ExploreText></ExploreBtn>
+						<ExploreBtn><ExploreText href='/about'>Tìm hiểu</ExploreText></ExploreBtn>
 					</Gioithieucontain>
 				</Test>
 			</div>
 			<Upcomingeventbg id='next event'>
 				<Upcomingeventbox>
 					<Upeventheadingbox>
-						<Gioithieuheading>UONLINE CONTEST</Gioithieuheading>
-						<Gioithieutext>Dess awifap pawjfpawf pajwifjpawof apjwfijpawf papawfpaf rig seofa[ờ oawfonp awhfoawi awofiapw aowifpfn</Gioithieutext>
+						<Gioithieuheading>OFFLINE CONTEST</Gioithieuheading>
+						<Gioithieutext>Sự kiện lớn nhất trong mỗi mùa của cuộc thi Toán Mô Hình là Main days - cuộc thi offline kéo dài trong 3 ngày.</Gioithieutext>
 					</Upeventheadingbox>
 					<ExploreText href='/event' style={{ padding: '60px' }}>Doc them</ExploreText>
 					<div>
-						<Deseventtext><BsFillClockFill style={{ marginRight: '10px' }} /> Thoi gian</Deseventtext>
-						<Deseventtext><BsFillFlagFill style={{ marginRight: '10px' }} /> Dia diem</Deseventtext>
-						<DKText>Dang ki</DKText>
+						<Deseventtext><FaRegClock style={{ marginRight: '20px', color: 'white', transform: 'scale(1.2)' }} /> Cuối tháng 9 </Deseventtext>
+						<Deseventtext><FaLocationArrow style={{ marginRight: '20px', color: 'white', transform: 'scale(1.2)' }} />Đại học Phenikaa</Deseventtext>
+						<DKText>Đăng kí</DKText>
 					</div>
 				</Upcomingeventbox>
 			</Upcomingeventbg>
 			<Achievementcontain id='Number'>
-				<Gioithieuheading>NHUNG CON SO AN TUONG</Gioithieuheading>
+				<Gioithieuheading >NHỮNG CON SỐ ẤN TƯỢNG</Gioithieuheading>
 				<Achicolucontain>
 					<Achicolu>
 						<RED><FaRegIdCard style={{ color: 'white', transform: 'scale(4)' }} /></RED>
@@ -439,12 +455,9 @@ export default function Home() {
 				<hr></hr>
 			</div>
 			<div id='mailrec' style={{ width: '80%', margin: 'auto' }}>
-				<Gioithieuheading>Mail</Gioithieuheading>
+				<Gioithieuheading>Nhận Thông Tin</Gioithieuheading>
 				<hr></hr>
 				<Subcontain>
-					<div>
-						<Gioithieutext>Nhận thông tin </Gioithieutext>
-					</div>
 					<Mailfield>
 						<Subemail type="input" placeholder="Email" name="name" id='name' required />
 						<Email className='form__label'>Email</Email>
@@ -452,6 +465,6 @@ export default function Home() {
 					<SubText href='/event' style={{ padding: '10px' }}>Subcribe</SubText>
 				</Subcontain>
 			</div>
-		</All>
+		</All >
 	)
 }

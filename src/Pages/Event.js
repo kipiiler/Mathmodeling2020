@@ -17,6 +17,12 @@ const Timeline = styled.div`
 	&:hover .time-item{
 		width: 30%;
 	}
+	@media only screen and (max-width: 600px) {
+		flex-flow:column;
+		&:hover .time-item{
+			width: 100%;
+		}
+	}
 `
 const Timeitems = styled.div`
 transform: translate3d(0,0,0);
@@ -68,6 +74,24 @@ transition: width 0.5s ease;
   transform: translateY(0);
   transition: all .75s ease .5s;
 };
+@media only screen and (max-width: 600px) {
+	width:100%;
+	&:hover{
+		width: 100% !important;
+	};
+	&:hover::after{
+		opacity: 0;
+	};
+	&:hover::before{
+		opacity: 1;
+		transition: transform 1s ease .25s, opacity 1s ease;
+	};
+	&:hover .time-content{
+		opacity: 1;
+		transform: translateY(0);
+		transition: all .75s ease .5s;
+	};
+}
 `
 const Timebg = styled.div`
 	position: absolute;
@@ -202,6 +226,9 @@ margin-top:20px;
 text-align: center;
 color: #FFFFFF;
 border: 1px solid #FFFFFF;
+@media only screen and (max-width: 600px) {
+	width:75%;
+}
 `
 export default function About() {
 	return (
@@ -218,10 +245,7 @@ export default function About() {
 				<Eventintro>
 					<Eventtext>Events</Eventtext>
 					<Eventdes>
-						Lỏema apwjvpa awpcjpao apvjpawjvpam
-						awevjapwvpajrvsuobonauf vaowhvo oăhv
-						ao whevoawvnoan aowvhoawijveaw oahwvoanv
-					</Eventdes>
+						Trải qua 5 năm tổ chức, Toán Mô hình đã tổ chức thành công 5 mùa với tổng cộng hơn 600 thí sinh tham gia đến từ mọi miền tổ quốc. Chưa dừng lại ở đó, Toán Mô hình cũng đã tổ chức thành công nhiều buổi Info Session và những cuộc thi Toán Mô hình Online nhằm giới thiệu bộ môn Toán Mô hình tới các bạn học sinh THPT trên địa bàn cả nước. Sự phản hồi tích cực từ học sinh tăng dần đã làm tăng yêu cầu về chất lượng và quy mô của chương trình.					</Eventdes>
 				</Eventintro>
 			</Aboutcontain>
 			<section>
@@ -235,8 +259,7 @@ export default function About() {
 						</Timeyear>
 						<Timecontent className="time-content">
 							<Eventaboutext>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, nam ratione maiores iure ea asperiores
-								veniam vel modi consectetur quae animi magnam ex amet aspernatur aut et repellat. Itaque, iusto.
+								Workshop thông tin về Toán Mô Hình được tổ chức tại Hà Nội với mục đích giới thiệu bộ môn và cuộc thi với các diễn giả là những giảng viên có chuyên môn trong ngành, hướng truyền tải những kiến thức Toán học lý thú và niềm đam mê với bộ môn.
 						</Eventaboutext>
 							<Timebtn href="#contain2018">Đọc thêm</Timebtn>
 						</Timecontent>
@@ -250,8 +273,7 @@ export default function About() {
 						</Timeyear>
 						<Timecontent className="time-content">
 							<Eventaboutext>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, nam ratione maiores iure ea asperiores
-								veniam vel modi consectetur quae animi magnam ex amet aspernatur aut et repellat. Itaque, iusto.
+								Cuộc thi online được tổ chức qua Facebook fanpage chính thức của cuộc thi. Với nhiều chủ đề đa dạng và thực tiễn, cuộc thi không chỉ nuôi dưỡng và tình yêu Toán học mà còn tạo điều kiện được thử sức cho học sinh trên toàn quốc.
 						</Eventaboutext>
 							<Timebtn href="#contain2019">Đọc thêm</Timebtn>
 						</Timecontent>
@@ -263,8 +285,7 @@ export default function About() {
 						</Timeyear>
 						<Timecontent className="time-content">
 							<Eventaboutext>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, nam ratione maiores iure ea asperiores
-								veniam vel modi consectetur quae animi magnam ex amet aspernatur aut et repellat. Itaque, iusto.
+								Sự kiện lớn nhất trong mỗi mùa của cuộc thi Toán Mô Hình là Main days - cuộc thi offline kéo dài trong 3 ngày. Không chỉ là một kỳ thi, Main days Toán Mô Hình còn có những buổi tập huấn với nhiều kiến thức bổ ích và hứa hẹn sẽ đem đến những trải nghiệm mới mẻ, cơ hội rèn luyện kỹ năng mềm, những tình bạn và kỷ niệm đáng nhớ cho tất cả thí sinh tham gia.
 						</Eventaboutext>
 							<Timebtn href="#contain2020">Đọc thêm</Timebtn>
 						</Timecontent>

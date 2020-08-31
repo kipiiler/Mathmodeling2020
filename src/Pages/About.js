@@ -6,6 +6,68 @@ import { OrbitControls, softShadows } from 'drei';
 import styled from 'styled-components';
 import { FaInstagram as FaInstagramSquare, FaFacebookF as FaFacebookSquare, FaGithub } from "react-icons/fa";
 
+import Tapthe from '../images/tapthe.JPG';
+import Meme from '../images/Concept.jpg';
+
+import AnhKien from '../images/Founder/Anh Kiên.jpg';
+import AnhPhuc from '../images/Founder/Anh Phúc.jpeg';
+import ChiPhuongAnh from '../images/Founder/Chị Phương Anh.jpg';
+import ChiTong from '../images/Founder/ChiTong-167.jpg'
+
+const BKimage = styled.div`
+background-image:url(${Tapthe});
+height: 90vh;
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+`
+const Bluecoat = styled.div`
+background:rgb(83, 132, 172,.5);
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+`
+const Block1 = styled.div`
+width:90vw;
+margin-top: -175px;
+margin-bottom:10vh;
+margin-left: auto;
+margin-right: auto;
+height:700px;
+background-color: #5384AC;
+display:flex;
+justify-content:space-evenly;
+align-items:center;
+flex-flow: row;
+@media only screen and (max-width: 600px){
+	flex-flow:column;
+}
+`
+const Gioithieutext1 = styled.div`
+color: white;
+font-style: normal;
+font-weight: bold;
+font-size:25px;
+padding-top:10px;
+width:40vw;
+text-align:center;
+@media only screen and (max-width: 600px){
+	flex-flow:row;
+	width:80%;
+}
+`
+const Media1 = styled.div`
+width:40vw;
+height:80%;
+background:url(${Meme});
+background-repeat: no-repeat;
+background-position: center;
+background-size: contain;
+`
+
 const quoteData = [{
 	quote1: `"Tôi không biết thế giới nhìn tôi như thế nào, nhưng đối với tôi, mình dường như chỉ là một đứa bé chơi đùa trên bờ biển: thi thoảng lại chăm chú nhìn vào một hòn sỏi trơn nhẵn hay một vỏ ốc đẹp đẽ hơn bình thường, trong khi đại dương bao la của kiến thức ngay trước mắt mình còn chưa được khám phá."`,
 	quote2: `"Không có lời giải tốt nhất, chỉ có lời giải tốt hơn”`,
@@ -127,6 +189,9 @@ display:flex;
 flex-flow: row wrap;
 align-items: center;
 justify-content: space-evenly;
+@media only screen and (max-width: 600px) {
+	flex-flow:column;
+}
 `
 
 const Column = styled.div`
@@ -153,7 +218,6 @@ width:250px;
 height:250px;
 border-radius:100%;
 border: 2px #F38640 solid;
-background:black;
 margin:5px;
 cursor:pointer;
 `
@@ -254,8 +318,21 @@ font-size:5vh;
 const Cupbox = styled.div`
 width:70%;
 height:50vh;
-background:#2C5684
+background:#2C5684;
+@media only screen and (max-width: 600px) {
+	width:100%;
+}
 `
+const Cupdisplaymo = styled.div`
+width:30%;
+height:50vh;
+background:#2C5684;
+display:block;
+@media only screen and (max-width: 600px) {
+	width:100%;
+}
+`
+
 
 export default function () {
 
@@ -263,53 +340,93 @@ export default function () {
 	console.log(quote);
 
 	return (
-		<>
+		<div style={{ background: ' #2C5684' }}>
+			<BKimage>
+				<Bluecoat>
+					<Heading style={{ fontSize: '50px', width: '100%', lineHeight: '50px' }}>Chúng mình là ai?</Heading>
+				</Bluecoat>
+			</BKimage>
+			<Block1>
+				<Gioithieutext1>
+					lorem aowhio ahoawi aoefihapf aohdio
+					lorem aowhio ahoawi aoefihapf aohdio
+					lorem aowhio ahoawi aoefihapf aohdio
+
+					lorem aowhio ahoawi aoefihapf aohdio
+					lorem aowhio ahoawi aoefihapf aohdio
+					lorem aowhio ahoawi aoefihapf aohdio
+				</Gioithieutext1>
+				<Media1></Media1>
+			</Block1>
 			<div>
 				<Row>
-					<Canvas style={{ display: 'block', outline: 'transparent solid 0px', height: '50vh', width: '30%', background: `#2C5684`, }} colorManagement shadowMap camera={{ position: [0, 1, 3] }}>
-						<ambientLight />
-						<spotLight position={[0, 5, 10]} penumbra={1} castShadow />
-						<directionalLight
-							castShadow
-							position={[0, 10, 0]}
-							intensity={1.5}
-							penumbra={1}
-							shadow-mapSize-width={1024}
-							shadow-mapSize-height={1024}
-							shadow-camera-far={50}
-							shadow-camera-left={-10}
-							shadow-camera-right={10}
-							shadow-camera-top={10}
-							shadow-camera-bottom={-10}
-						/>
-						<OrbitControls />
-						<Suspense fallback={<Loading />}>
-							<Trophy position />
-						</Suspense>
+					<Cupdisplaymo>
+						<Canvas style={{ display: 'block', height: '50vh', width: '100%', background: `#2C5684`, }} colorManagement shadowMap camera={{ position: [0, 1, 3] }}>
+							<ambientLight />
+							<spotLight position={[0, 5, 10]} penumbra={1} castShadow />
+							<directionalLight
+								castShadow
+								position={[0, 10, 0]}
+								intensity={1.5}
+								penumbra={1}
+								shadow-mapSize-width={1024}
+								shadow-mapSize-height={1024}
+								shadow-camera-far={50}
+								shadow-camera-left={-10}
+								shadow-camera-right={10}
+								shadow-camera-top={10}
+								shadow-camera-bottom={-10}
+							/>
+							<OrbitControls />
+							<Suspense fallback={<Loading />}>
+								<Trophy position />
+							</Suspense>
 
-					</Canvas>
+						</Canvas>
+					</Cupdisplaymo>
 					<Cupbox></Cupbox>
+
 				</Row>
-			</div>
+			</div >
 			<Maincontainer>
 				<HRBar />
 				<Heading>FOUNDER</Heading>
 				<Row>
 					<Column>
-						<FounderCard onClick={() => updatequote(quoteData[0].quote1)}></FounderCard>
-						<Foundertitle>aaaa</Foundertitle>
+						<FounderCard style={{
+							background: `url("${AnhPhuc}")`,
+							backgroundPosition: 'center',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat'
+						}} onClick={() => updatequote(quoteData[0].quote1)}></FounderCard>
+						<Foundertitle>Lê Minh Phúc</Foundertitle>
 					</Column>
 					<Column>
-						<FounderCard onClick={() => updatequote(quoteData[0].quote2)}></FounderCard>
-						<Foundertitle>aaaa</Foundertitle>
+						<FounderCard style={{
+							background: `url("${ChiTong}")`,
+							backgroundPosition: 'center',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat'
+						}} onClick={() => updatequote(quoteData[0].quote2)}></FounderCard>
+						<Foundertitle>Tống Hiền Chi</Foundertitle>
 					</Column>
 					<Column>
-						<FounderCard onClick={() => updatequote(quoteData[0].quote3)}></FounderCard>
-						<Foundertitle>aaaaaaaa</Foundertitle>
+						<FounderCard style={{
+							background: `url("${ChiPhuongAnh}")`,
+							backgroundPosition: 'center',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat'
+						}} onClick={() => updatequote(quoteData[0].quote3)}></FounderCard>
+						<Foundertitle>Nguyễn Phương Anh</Foundertitle>
 					</Column>
 					<Column>
-						<FounderCard onClick={() => updatequote(quoteData[0].quote4)}></FounderCard>
-						<Foundertitle>aaaaaaa</Foundertitle>
+						<FounderCard style={{
+							background: `url("${AnhKien}")`,
+							backgroundPosition: 'center',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat'
+						}} onClick={() => updatequote(quoteData[0].quote4)}></FounderCard>
+						<Foundertitle>Lê Trần Kiên</Foundertitle>
 					</Column>
 				</Row>
 				<Quote>{quote}</Quote>
@@ -318,7 +435,7 @@ export default function () {
 				<div>
 					<Row>
 						<Membercard>
-							<Front className='front'><Membertitle>aaaaaaaaaaaaaaa</Membertitle></Front>
+							<Front className='front'><Membertitle>aaaaaaaaaaaaaaa<br /> aaaaaaa</Membertitle></Front>
 							<Back className='back'>
 								<Socialmediacontain>
 									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
@@ -444,6 +561,6 @@ export default function () {
 					</Row>
 				</div>
 			</Maincontainer>
-		</>
+		</div>
 	)
 }

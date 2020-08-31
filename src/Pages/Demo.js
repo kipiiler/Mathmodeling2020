@@ -1,4 +1,4 @@
-import React, { useRef, Suspense } from 'react';
+import React, { useRef, useState, Suspense } from 'react';
 import { Canvas, useFrame, useLoader } from 'react-three-fiber';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls, softShadows } from 'drei';
@@ -120,11 +120,25 @@ function Loading() {
   )
 }
 
+const FAQsItem = (props) => {
+  const [show, setShow] = useState(false);
+  return (
+    <div>
+      <div ans={show} onClick={() => { setShow(!show) }} show={show}>yo</div>
+      <div hidden={!show}>
+        dcm
+      </div>
+    </div>
+  )
+}
+
 export default function Dev() {
 
   return (
     <>
       <div style={{ height: '20vh', background: `#2C5684` }}></div>
+      <FAQsItem></FAQsItem>
+      <FAQsItem></FAQsItem>
       <Canvas style={{ outline: 'transparent solid 0px', height: '50vh', width: '30vw', background: `#2C5684`, }} colorManagement shadowMap camera={{ position: [0, 2, 2] }}>
         <ambientLight />
         <spotLight position={[0, 5, 10]} penumbra={1} castShadow />

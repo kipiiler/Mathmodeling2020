@@ -32,6 +32,9 @@ display:flex;
 flex-flow:row no-wrap;
 margin:auto;
 justify-content:space-evenly;
+@media only screen and (max-width: 600px) {
+	width:50%;
+}
 `
 const Infotext = styled.h4`
 color:#566B72;
@@ -48,12 +51,16 @@ width: 80%;
 margin:auto;
 margin-bottom:3vh;
 border: 1px solid #566B72;
+
 `
 const HRvertical = styled.div`
 height: 80px;
 width: 5%;
 margin: auto 0vh auto 0vh;
 border-left: 2px solid #566B72;
+@media only screen and (max-width: 600px) {
+display:none;
+}
 `
 
 const Maincontainer = styled.div`
@@ -62,15 +69,26 @@ flex-flow: row no-wrap;
 width:90%;
 margin: auto;
 justify-content: center;
+@media only screen and (max-width: 600px) {
+	width:100%;
+	}
 `
 const Menu = styled.div`
-width:25% `
+width:25%;
+@media only screen and (max-width: 600px) {
+	width:70%;
+	}
+`
 
 const Cata = styled.div`
 display:flex;
 width: 65%;
 flex-flow:row no-wrap;
-justify-content: space-between`
+justify-content: space-between;
+@media only screen and (max-width: 600px) {
+	display:none;
+}
+`
 
 const Catabox = styled.div`
 display:flex
@@ -95,6 +113,7 @@ export default function Footer() {
 						<Link href=''><FaInstagramSquare /></Link>
 						<Link href=''><FaYoutube /></Link>
 					</div>
+					<h5>0855 928 355 (Mrs.Hải)</h5>
 					<h5>toanmohinhhanoi@gmail.com</h5>
 				</Menu>
 				<HRvertical />
