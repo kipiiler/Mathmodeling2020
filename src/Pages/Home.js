@@ -7,6 +7,9 @@ import Medal from "../images/huychuong.JPG";
 
 import { FaUserFriends, FaRegIdCard, FaMapMarkedAlt, FaQuestion, FaLocationArrow, FaRegClock } from "react-icons/fa"
 
+import Hiepngu from "../images/Review/Hiep_Ngu.jpg"
+import Minhkhue from "../images/Review/Minh_Khue.jpeg"
+import BachThao from "../images/Review/Bach_Thao.jpg"
 
 const All = styled.div`
 background-color:#2C5684;
@@ -282,32 +285,32 @@ const reviewdata = [
 		dot1: "#F38640",
 		dot2: "white",
 		dot3: "white",
-		name: 'Nguyen Tien Dung',
-		title: 'Truong Ban Chuyen Mon',
-		comment: 'nxet nxetnxetnxetnxet nxet nxet nxet nxet nxetnxet nxet nxet nxet nxet nxetnxet nxet nxet nxet nxet ',
-		link: "https://scontent.fhan2-6.fna.fbcdn.net/v/t1.0-9/80617560_1564902187026378_8035853312253231104_o.jpg?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=FPUVyZ65UFcAX-SbyGT&_nc_ht=scontent.fhan2-6.fna&oh=734c5546927caae63943b5690ec05006&oe=5F454FA7"
+		name: 'Hồ Tùng Hiệp',
+		title: 'Thí sinh TMH 2019',
+		comment: 'Cũng nhờ có TMH mà mình được trải nghiệm và bạo dạn hơn nữa, lần đầu mình đi một mình xa gia đình như vậy, lần đầu mình không ngủ được vì sợ dậy muộn xe đi mất lại phải chạy như hôm trước đó :))))) lần đầu cùng anh em trong team thức đêm làm slide để hôm sau trình bày, được thuyết trình bài giải của mình trước những người thầy cô nổi tiếng. Đây thật sự là một trải nghiệm đáng nhớ.Mùa mới chắc sẽ có nhiều thay đổi, nhưng mình mong rằng người chơi năm nay vẫn sẽ có được những trải nghiệm đáng nhớ như mình đã may mắn có được trong năm trước nhé!',
+		link: Hiepngu
 	},
 	{
 		dot1: "white",
 		dot2: "#F38640",
 		dot3: "white",
-		name: '2',
-		title: '',
-		comment: '',
-		link: ''
+		name: 'Nguyễn Minh Khuê',
+		title: 'Á quân TMH 2018 & 2019',
+		comment: 'Mình biết đến tmh 1 cách rất tình cờ, và mình đki tham gia vì muốn thử sức với cái gì đó mới lạ. Đội mình đặt tên là Núp nghĩa là noob + ẩn núp vì chúng mình nghiệp dư ma =))). Và những trải nghiệm của mình ở tmh thật sự rất thú vị. Mình cbh tham gia cuộc thi nào làm nhiều mà chơi cũng nhiều như vậy. Nhờ tmh mà mình tìm thấy sự hứng thú với bộ môn toán ứng dụng, cụ thể hơn là thống kê - ptich số liệu, và đó cũng trở thành 1 phần mình muốn học trên đhoc. Cảm ơn cuộc thi vì đã là 1 phần của 2 mùa hè cấp 3 của mình. Rất là vui rất là đáng thử nhé mọi người!',
+		link: Minhkhue
 	},
 	{
 		dot1: "white",
 		dot2: "white",
 		dot3: "#F38640",
-		name: '3',
-		title: '',
-		comment: '',
-		link: ''
+		name: 'Bạch Thị Thảo Nguyên',
+		title: ' BTC TMH 2017 & 2018',
+		comment: ' Nói về TMH thì với mình, không có định nghĩa nào hợp lý hơn "những người anh em tuyệt vời". Mình tham gia btc TMH từ năm mình học lớp 10, ngày đấy mình bé nhất trong btc và hầu như ngơ ngơ chả biết gì ý. Nhma mn luôn hướng dẫn, chỉ bảo rất nhiều, xong hết ct mn còn rủ nhau đi xp cơ. Vì tình cảm đó mà mình lại đăng ký làm btc TMH năm sau. Còn năm mình 12 thì do lỗi sợ thi cử nên mình chỉ đồng hành trên phương diện online thui ^^ Nc tham gia TMH mình có thêm kinh nghiệm, có thêm những người anh, người chị, người bạn vô cũng đi nữa nên mình luôn mong có thể support cho TMH nhiều nhất có thể. Hơn hết, đây cũng là 1 sân chơi khá hay đối với các bạn hs c3, nội dung cũng khá mới lạ, thiết thực nữa nên mình cũng mong TMH sẽ càng ngày càng phát triển và đem đến nhiều giá trị cho người tham gia.',
+		link: BachThao
 	}
 ]
 const ReviewContain = styled.div`
-width:70%;
+width:80%;
 border: 4px solid #FFFFFF;
 box-sizing: border-box;
 border-radius: 87px;
@@ -325,12 +328,13 @@ margin-bottom:50px;
 const Picreview = styled.div`
 border: 4px solid #F38640;
 box-sizing: border-box;
+margin:auto;
 border-radius: 50px;
 height:400px;
 width:300px;
 @media only screen and (max-width: 600px) {
 	height:200px;
-	width:300px;
+	width:200px;
 }
 `
 
@@ -341,7 +345,7 @@ width:80%;
 justify-content: space-evenly;
 flex-flow:row;
 align-items: space-evenly;
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 	flex-flow:column;
 }
 `
@@ -349,7 +353,7 @@ align-items: space-evenly;
 const ReviewDetail = styled.div`
 margin:auto;
 padding:auto;
-max-width: 300px`
+max-width: 500px`
 
 const ReviewBar = styled.hr`
 border: 1px solid #F38640;
@@ -367,10 +371,10 @@ const Demo = () => {
 		dot1: "#F38640",
 		dot2: "white",
 		dot3: "white",
-		name: 'Nguyen Tien Dung',
-		title: 'Truong Ban Chuyen Mon',
-		comment: 'nxet nxetnxetnxetnxet nxet nxet nxet nxet nxetnxet nxet nxet nxet nxet nxetnxet nxet nxet nxet nxet ',
-		link: "https://scontent.fhan2-6.fna.fbcdn.net/v/t1.0-9/80617560_1564902187026378_8035853312253231104_o.jpg?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=FPUVyZ65UFcAX-SbyGT&_nc_ht=scontent.fhan2-6.fna&oh=734c5546927caae63943b5690ec05006&oe=5F454FA7"
+		name: 'Hồ Tùng Hiệp',
+		title: 'Thí sinh TMH 2019',
+		comment: 'Cũng nhờ có TMH mà mình được trải nghiệm và bạo dạn hơn nữa, lần đầu mình đi một mình xa gia đình như vậy, lần đầu mình không ngủ được vì sợ dậy muộn xe đi mất lại phải chạy như hôm trước đó :))))) lần đầu cùng anh em trong team thức đêm làm slide để hôm sau trình bày, được thuyết trình bài giải của mình trước những người thầy cô nổi tiếng. Đây thật sự là một trải nghiệm đáng nhớ.Mùa mới chắc sẽ có nhiều thay đổi, nhưng mình mong rằng người chơi năm nay vẫn sẽ có được những trải nghiệm đáng nhớ như mình đã may mắn có được trong năm trước nhé!',
+		link: Hiepngu
 	});
 	const dots = document.getElementsByClassName('Dot');
 	for (var i = 0; i < 3; i++) {
@@ -403,8 +407,8 @@ export default function Home() {
 			<div id='explore'>
 				<Test>
 					<Gioithieucontain>
-						<Gioithieuheading>GIOI THIEU</Gioithieuheading>
-						<Gioithieutext>Gioi thieu Gioi Thieu</Gioithieutext>
+						<Gioithieuheading>Toán Mô Hình Hà Nội</Gioithieuheading>
+						<Gioithieutext>Math Modelling Contest - MMC</Gioithieutext>
 						<ExploreBtn><ExploreText href='/about'>Tìm hiểu</ExploreText></ExploreBtn>
 					</Gioithieucontain>
 				</Test>
@@ -415,11 +419,11 @@ export default function Home() {
 						<Gioithieuheading>OFFLINE CONTEST</Gioithieuheading>
 						<Gioithieutext>Sự kiện lớn nhất trong mỗi mùa của cuộc thi Toán Mô Hình là Main days - cuộc thi offline kéo dài trong 3 ngày.</Gioithieutext>
 					</Upeventheadingbox>
-					<ExploreText href='/event' style={{ padding: '60px' }}>Doc them</ExploreText>
+					<ExploreText href='/event' style={{ margin: '50px' }}>Đọc Thêm</ExploreText>
 					<div>
-						<Deseventtext><FaRegClock style={{ marginRight: '20px', color: 'white', transform: 'scale(1.2)' }} /> Cuối tháng 9 </Deseventtext>
-						<Deseventtext><FaLocationArrow style={{ marginRight: '20px', color: 'white', transform: 'scale(1.2)' }} />Đại học Phenikaa</Deseventtext>
-						<DKText>Đăng kí</DKText>
+						<Deseventtext><FaRegClock style={{ marginRight: '20px', color: 'white', transform: 'scale(1.2)' }} /> 26,27/09/2020 </Deseventtext>
+						<Deseventtext><FaLocationArrow style={{ marginRight: '20px', color: 'white', transform: 'scale(1.2)' }} />Đại học Sư Phạm</Deseventtext>
+						<DKText href='https://docs.google.com/forms/d/e/1FAIpQLSd4Ime2jQ3I_H6C-Waov27tWymk-kH0rQLLeZt2W-yQQAIHDQ/viewform?fbclid=IwAR0Zl60dE8RzENyKI0XN3KqmkNgaGEOxGXP3L4B0znkxZcqk4Q_f7YDod7Y'>Đăng kí</DKText>
 					</div>
 				</Upcomingeventbox>
 			</Upcomingeventbg>

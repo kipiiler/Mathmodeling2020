@@ -4,7 +4,7 @@ import Cup from '../images/demo.glb';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls, softShadows } from 'drei';
 import styled from 'styled-components';
-import { FaInstagram as FaInstagramSquare, FaFacebookF as FaFacebookSquare, FaGithub } from "react-icons/fa";
+import { FaInstagram as FaInstagramSquare, FaFacebookF as FaFacebookSquare, FaEnvelope } from "react-icons/fa";
 
 import Tapthe from '../images/tapthe.JPG';
 import Meme from '../images/Concept.jpg';
@@ -13,6 +13,31 @@ import AnhKien from '../images/Founder/Anh Kiên.jpg';
 import AnhPhuc from '../images/Founder/Anh Phúc.jpeg';
 import ChiPhuongAnh from '../images/Founder/Chị Phương Anh.jpg';
 import ChiTong from '../images/Founder/ChiTong-167.jpg'
+
+import NgocHai from '../images/Member/Img/Ngoc_Hai.jpg';
+import NgocDiep from '../images/Member/Img/Ngoc_Diep.JPG';
+import TienDung from '../images/Member/Img/Tien_Dung.jpg';
+import DangDuy from '../images/Member/Img/Dang_Duy.jpg';
+import VietAnh from '../images/Member/Img/Viet_Anh.jpg';
+import HaThu from '../images/Member/Img/Ha_Thu.JPG';
+import DoanHoang from '../images/Member/Img/Doan_Hoang.JPG';
+import YenNhi from '../images/Member/Img/Yen_Nhi.JPG';
+import LeHuyen from '../images/Member/Img/Le_Huyen.jpg';
+import ThanhTam from '../images/Member/Img/Ngoc_Hai.jpg';
+
+
+import NgocHaigif from '../images/Member/Gif/Ngoc_Hai.gif';
+import NgocDiepgif from '../images/Member/Gif/Ngoc_Diep.gif';
+import TienDunggif from '../images/Member/Gif/Tien_Dung.gif';
+import DangDuygif from '../images/Member/Gif/Ngoc_Hai.gif';
+import VietAnhgif from '../images/Member/Gif/Viet_Anh.gif';
+import HaThugif from '../images/Member/Gif/Ha_Thu.gif';
+import DoanHoanggif from '../images/Member/Gif/Doan_Hoang.gif';
+import YenNhigif from '../images/Member/Gif/Yen_Nhi.gif';
+import ThanhTamgif from '../images/Member/Gif/Tam_Ta.gif';
+import LeHuyengif from '../images/Member/Gif/Le_Huyen.gif';
+
+
 
 const BKimage = styled.div`
 background-image:url(${Tapthe});
@@ -33,7 +58,6 @@ justify-content:center;
 const Block1 = styled.div`
 width:90vw;
 margin-top: -175px;
-margin-bottom:10vh;
 margin-left: auto;
 margin-right: auto;
 height:700px;
@@ -49,9 +73,9 @@ flex-flow: row;
 const Gioithieutext1 = styled.div`
 color: white;
 font-style: normal;
+margin-top: 30px;
 font-weight: bold;
 font-size:25px;
-padding-top:10px;
 width:40vw;
 text-align:center;
 @media only screen and (max-width: 600px){
@@ -80,12 +104,11 @@ const Trophy = () => {
 	const mesh = useRef();
 	useFrame(() => {
 		mesh.current.position.y = -.9;
-		mesh.current.rotation.y += 0
-		mesh.current.rotation.x += 0
+		mesh.current.rotation.y += 0;
+		mesh.current.rotation.x = -.1;
 	})
 	const { nodes, materials } = useLoader(GLTFLoader, Cup);
 	const entries = Object.entries(materials)
-	console.log(entries)
 	for (var x of entries) {
 		//Set glass property to all
 		x[1].roughness = 0.3;
@@ -217,7 +240,6 @@ const FounderCard = styled.div`
 width:250px;
 height:250px;
 border-radius:100%;
-border: 2px #F38640 solid;
 margin:5px;
 cursor:pointer;
 `
@@ -271,8 +293,7 @@ width:100%;
 height:100%;
 position:absolute;
 backface-visibility:hidden;
-filter:grayscale(100%);
-background:url('https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/116942708_2708240505943072_4613189098958994399_n.jpg?_nc_cat=1&_nc_sid=09cbfe&_nc_ohc=wT_YsfjYYc4AX_iHdHV&_nc_ht=scontent.fhan2-1.fna&oh=0ac54c3d02c9c999f77d393b73ba48d7&oe=5F5535A6');
+filter:grayscale(0%);
 background-position:center;
 background-size:cover;
 background-repeat:no-repeat;
@@ -283,7 +304,6 @@ const Back = styled.div`
 transform: perspective(0) rotateY(180deg);
 width:100%;
 height:100%;
-background:url('');
 overflow:hidden;
 position:absolute;
 backface-visibility:hidden;
@@ -319,6 +339,9 @@ const Cupbox = styled.div`
 width:70%;
 height:50vh;
 background:#2C5684;
+display:flex;
+justify-content:center;
+align-items: center;
 @media only screen and (max-width: 600px) {
 	width:100%;
 }
@@ -332,7 +355,132 @@ display:block;
 	width:100%;
 }
 `
+const Box2inside = styled.div`
+font-family: Roboto;
+font-size: 20px;
+width: 75%;
+padding: 50px;
+text-align: center;
+color: #FFFFFF;
+border: 5px solid #FFFFFF;
+font-weight: bold;
+@media only screen and (max-width: 600px) {
+	width:75%;
+	border:none;
+}
+`
+const Memberdata = [{
+	name: "Nguyễn Ngọc Hải",
+	title: "Trưởng ban tổ chức",
+	img: NgocHai,
+	gif: NgocHaigif,
+	facebooklink: "http://fb.com/hai.nguyenngoc.129794",
+	instargramlink: "https://www.instagram.com/ynwaelnino/?hl=vi",
+	gmaillink: "mailto:haibeo2552001@gmail.com",
+},
+{
+	name: "Nguyễn Tiến Dũng",
+	title: "Trưởng ban Chuyên Môn",
+	img: TienDung,
+	gif: TienDunggif,
+	facebooklink: "http://fb.com/dung.richard",
+	instargramlink: "https://www.instagram.com/_nguyentien.dung_/?hl=en",
+	gmaillink: "mailto:dung.nt170062@sis.hust.edu.vn",
+}, {
+	name: "Tạ Thị Thanh Tâm",
+	title: "Trưởng ban Truyền Thông",
+	img: ThanhTam,
+	gif: ThanhTamgif,
+	facebooklink: "https://www.facebook.com/profile.php?id=100008730078967",
+	instargramlink: "https://www.instagram.com/thanhtam.2412/",
+	gmaillink: "mailto:tathithanhtam241201@gmail.com",
+}, {
+	name: "Lê Thị Khánh Huyền",
+	title: "Trưởng ban Truyền Thông",
+	img: LeHuyen,
+	gif: LeHuyengif,
+	facebooklink: "https://www.facebook.com/profile.php",
+	instargramlink: "https://www.instagram.com/lee_ashleyyyy/?fbclid=IwAR0FsLLq7DiYEflIw_PxLhQSdz07abvtrtqWco2o47hQdtS_-REfoQZH72o",
+	gmaillink: "mailto:oshlead@gmail.com",
+}, {
+	name: "Trần Thị Thu Hà",
+	title: "Trưởng ban Đạo Diễn - Hậu Cần",
+	img: HaThu,
+	gif: HaThugif,
+	facebooklink: "https://www.facebook.com/ha.thu.0704",
+	instargramlink: "https://www.instagram.com/hathu0704/?hl=vi",
+	gmaillink: "mailto:hathu070401@gmail.com",
+}, {
+	name: "Nguyễn Doãn Hoàng",
+	title: "Phó ban Đạo Diễn - Hậu Cần",
+	img: DoanHoang,
+	gif: DoanHoanggif,
+	facebooklink: "https://www.facebook.com/kipiiler",
+	instargramlink: "https://www.instagram.com/bucc_._/?hl=vi",
+	gmaillink: "mailto:hoanghohohaha@gmail.com",
+}, {
+	name: "Nguyễn Ngọc Diệp",
+	title: "Phó ban tổ chức - trưởng ban Media",
+	img: NgocDiep,
+	gif: NgocDiepgif,
+	facebooklink: "http://fb.com/diepngocnguyen812",
+	instargramlink: "",
+	gmaillink: "mailto:",
+}, {
+	name: "Phạm Đăng Duy",
+	title: "Trưởng ban Media",
+	img: DangDuy,
+	gif: DangDuygif,
+	facebooklink: "http://fb.com/duy.pham.180930",
+	instargramlink: "",
+	gmaillink: "mailto:phamduysmart@gmail.com ",
+}, {
+	name: "Đặng Yến Nhi",
+	title: "Trưởng ban Tài Chính",
+	img: YenNhi,
+	gif: YenNhigif,
+	facebooklink: "https://www.facebook.com/yennhi.dang.967",
+	instargramlink: "https://www.instagram.com/hi_yennhii/?hl=en",
+	gmaillink: "mailto:dangyennhi2003@gmail.com",
+},
+{
+	name: "Nguyễn Hà Việt Anh",
+	title: "Trưởng ban CTV",
+	img: VietAnh,
+	gif: VietAnhgif,
+	facebooklink: "http://fb.com/vanh.nguyen.180930",
+	instargramlink: "",
+	gmaillink: "mailto:vanhnguyen0402@gmail.com",
+}
+]
 
+function MembercardDisplay() {
+	let membercard = []
+	for (let k = 0; k < Memberdata.length; k++) {
+		console.log(Memberdata[k]);
+		membercard = [...membercard, <Membercard key={k}>
+			<Front className='front' style={{
+				background: `url("${Memberdata[k].img}")`, backgroundPosition: 'center',
+				backgroundSize: 'contain',
+				backgroundRepeat: 'no-repeat'
+			}}><Membertitle>{Memberdata[k].name}<br /> {Memberdata[k].title}</Membertitle></Front>
+			<Back className='back' style={{
+				background: `url("${Memberdata[k].gif}")`, backgroundPosition: 'center',
+				backgroundSize: 'cover',
+				backgroundRepeat: 'no-repeat'
+			}}>
+				<Socialmediacontain>
+					<Socialmediaitem href={Memberdata[k].facebooklink}><FaFacebookSquare /></Socialmediaitem>
+					<Socialmediaitem href={Memberdata[k].instargramlink}><FaInstagramSquare /></Socialmediaitem>
+					<Socialmediaitem href={Memberdata[k].gmaillink}><FaEnvelope /></Socialmediaitem>
+				</Socialmediacontain>
+			</Back>
+		</Membercard >]
+	};
+
+	return membercard
+}
+MembercardDisplay();
 
 export default function () {
 
@@ -351,7 +499,6 @@ export default function () {
 					lorem aowhio ahoawi aoefihapf aohdio
 					lorem aowhio ahoawi aoefihapf aohdio
 					lorem aowhio ahoawi aoefihapf aohdio
-
 					lorem aowhio ahoawi aoefihapf aohdio
 					lorem aowhio ahoawi aoefihapf aohdio
 					lorem aowhio ahoawi aoefihapf aohdio
@@ -377,15 +524,17 @@ export default function () {
 								shadow-camera-top={10}
 								shadow-camera-bottom={-10}
 							/>
-							<OrbitControls />
+							<OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 3.5} maxAzimuthAngle={Math.PI / 7} />
 							<Suspense fallback={<Loading />}>
-								<Trophy position />
+								<Trophy rotation={[0, 0, 2]} />
 							</Suspense>
-
 						</Canvas>
 					</Cupdisplaymo>
-					<Cupbox></Cupbox>
-
+					<Cupbox>
+						<Box2inside>
+							Trải qua 5 năm tổ chức, Toán Mô hình đã tổ chức thành công 5 mùa với tổng cộng hơn 600 thí sinh tham gia đến từ mọi miền tổ quốc. Chưa dừng lại ở đó, Toán Mô hình cũng đã tổ chức thành công nhiều buổi Info Session và những cuộc thi Toán Mô hình Online nhằm giới thiệu bộ môn Toán Mô hình tới các bạn học sinh THPT trên địa bàn cả nước. Sự phản hồi tích cực từ học sinh tăng dần đã làm tăng yêu cầu về chất lượng và quy mô của chương trình.
+							</Box2inside>
+					</Cupbox>
 				</Row>
 			</div >
 			<Maincontainer>
@@ -432,134 +581,9 @@ export default function () {
 				<Quote>{quote}</Quote>
 				<HRBar />
 				<Heading>OUR TEAM</Heading>
-				<div>
-					<Row>
-						<Membercard>
-							<Front className='front'><Membertitle>aaaaaaaaaaaaaaa<br /> aaaaaaa</Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-						<Membercard>
-							<Front className='front'><Membertitle></Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-						<Membercard>
-							<Front className='front'><Membertitle></Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-						<Membercard>
-							<Front className='front'><Membertitle></Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-					</Row>
-					<Row>
-						<Membercard>
-							<Front className='front'><Membertitle></Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-						<Membercard>
-							<Front className='front'><Membertitle></Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-						<Membercard>
-							<Front className='front'><Membertitle></Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-						<Membercard>
-							<Front className='front'><Membertitle></Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-					</Row>
-					<Row>
-						<Membercard>
-							<Front className='front'><Membertitle></Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-						<Membercard>
-							<Front className='front'><Membertitle></Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-						<Membercard>
-							<Front className='front'><Membertitle></Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-						<Membercard>
-							<Front className='front'><Membertitle></Membertitle></Front>
-							<Back className='back'>
-								<Socialmediacontain>
-									<Socialmediaitem><FaFacebookSquare /></Socialmediaitem>
-									<Socialmediaitem><FaInstagramSquare /></Socialmediaitem>
-									<Socialmediaitem><FaGithub /></Socialmediaitem>
-								</Socialmediacontain>
-							</Back>
-						</Membercard>
-					</Row>
-				</div>
+				<Row>
+					<MembercardDisplay></MembercardDisplay>
+				</Row>
 			</Maincontainer>
 		</div>
 	)

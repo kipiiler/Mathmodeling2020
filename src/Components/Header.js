@@ -59,10 +59,7 @@ color:white;
 transition: .5s ease all;
 &:hover{
 	font-size:120%;
-	background-image: linear-gradient(to right,#259759 ,#29A1C5);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
+	color: antiquewhite;
 };
 `
 const HRBar = styled.hr`
