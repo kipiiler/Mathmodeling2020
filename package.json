@@ -16,7 +16,7 @@
     "react-three-fiber": "^4.2.20",
     "start": "^5.1.0",
     "styled-components": "^5.1.1",
-    "three": "^0.119.1"
+    "three": "^0.125.0"
   },
   "scripts": {
     "start": "react-scripts start",
