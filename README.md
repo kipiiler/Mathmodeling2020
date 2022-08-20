@@ -1,6 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+# [Hanoi's Math Modeling](https://www.facebook.com/toanmohinh.hanoi) 2020's official website
 
 In the project directory, you can run:
 
